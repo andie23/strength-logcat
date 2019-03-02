@@ -40,21 +40,20 @@ class LogSets{
 
     public void addSet()
     {
-
+        addSetToSetList(setNumber, repNumber);
         setNumber += 1;
         repNumber = 0;
-        addSetToSetList();
     }
 
     public void removeSet()
     {
         int difference = setNumber - 1;
-        if(setNumber >= 0)
+        if(setNumber > 1)
         {
             setNumber = difference;
-            repNumber = setList.get(difference);
+            repNumber = setList.get(difference -1);
         }else{
-            setNumber = 0;
+            setNumber = 1;
             repNumber = 0;
         }
     }
@@ -62,7 +61,7 @@ class LogSets{
     public void removeRep()
     {
         int difference = repNumber - 1;
-        if(repNumber >= 0)
+        if(repNumber > 0)
         {
             repNumber = difference;
         }else{
@@ -70,10 +69,9 @@ class LogSets{
         }
     }
 
-    private void addSetToSetList()
+    private void addSetToSetList(int setNumber, int repNumber)
     {
-        int setNumber = this.setNumber;
-        if(this.setNumber >=1)
+        if(setNumber >=1)
         {
             setNumber -= 1;
         }

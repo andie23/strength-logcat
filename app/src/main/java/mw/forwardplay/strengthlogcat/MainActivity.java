@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setCountTextView = (TextView) findViewById(R.id.set_count);
     }
 
-    public void onClickAdd(View view)
+    public void onClickSetAdjusters(View view)
     {
         exerciseName = exerciseEditText.getText().toString();
 
@@ -42,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.add_set:
                     setLog.addSet();
                     break;
+                case R.id.remove_rep:
+                    setLog.removeRep();
+                    break;
+                case R.id.remove_set:
+                    setLog.removeSet();
+                    Toast.makeText(getApplicationContext(), "Riverted to previous Set",
+                            Toast.LENGTH_SHORT).show();
+                    break;
                 default:
                     break;
             }
@@ -55,4 +63,5 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
     }
+
 }

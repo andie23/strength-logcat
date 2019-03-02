@@ -38,9 +38,11 @@
             android:layout_height="wrap_content">
 
             <Button
+                android:id="@+id/remove_set"
                 android:textColor="@android:color/white"
                 android:background="@android:color/holo_red_light"
                 android:text="Subtract"
+                android:onClick="onClickSetAdjusters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -57,7 +59,7 @@
                 android:background="@android:color/holo_green_light"
                 android:textColor="@android:color/white"
                 android:layout_marginLeft="30dp"
-                android:onClick="onClickAdd"
+                android:onClick="onClickSetAdjusters"
                 android:text="ADD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -72,10 +74,12 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/remove_rep"
                 android:textColor="@android:color/white"
                 android:background="@android:color/holo_red_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClickSetAdjusters"
                 android:text="Subtract" />
 
             <TextView
@@ -88,7 +92,7 @@
 
             <Button
                 android:id="@+id/add_rep"
-                android:onClick="onClickAdd"
+                android:onClick="onClickSetAdjusters"
                 android:background="@android:color/holo_green_light"
                 android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
