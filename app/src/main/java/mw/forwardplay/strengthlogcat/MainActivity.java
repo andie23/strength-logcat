@@ -20,13 +20,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        exerciseEditText = (EditText) findViewById(R.id.exercise_name);
+        repCountTextView = (TextView) findViewById(R.id.rep_count);
+        setCountTextView = (TextView) findViewById(R.id.set_count);
     }
 
     public void onClickAdd(View view)
     {
-        exerciseEditText = (EditText) findViewById(R.id.exercise_name);
-        repCountTextView = (TextView) findViewById(R.id.rep_count);
-        setCountTextView = (TextView) findViewById(R.id.set_count);
         exerciseName = exerciseEditText.getText().toString();
 
         if (!exerciseName.isEmpty())
