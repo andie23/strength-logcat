@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -14,7 +13,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
         <TextView
+            android:padding="5dp"
             android:textAppearance="@android:style/TextAppearance.Large"
             android:layout_marginTop="10dp"
             android:text="Exercise Name"
@@ -30,6 +34,7 @@
             android:layout_gravity="center" />
 
         <TextView
+            android:padding="5dp"
             android:textAppearance="@android:style/TextAppearance.Large"
             android:layout_marginTop="25dp"
             android:text="Set Number:"
@@ -38,6 +43,7 @@
             android:layout_height="wrap_content"/>
 
         <LinearLayout
+            android:padding="5dp"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -73,6 +79,7 @@
         </LinearLayout>
 
         <TextView
+            android:padding="5dp"
             android:textAppearance="@android:style/TextAppearance.Large"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
@@ -81,6 +88,7 @@
             android:layout_height="wrap_content"/>
 
         <LinearLayout
+            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -116,23 +124,13 @@
         </LinearLayout>
 
         <TextView
+            android:padding="5dp"
             android:id="@+id/exercise_log"
             android:textAppearance="@android:style/TextAppearance.Large"
             android:layout_marginTop="20dp"
             android:text="Nothing to Log"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/new_exercise"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary"
-            android:onClick="onClickNewExercise"
-            android:text="Next exercise"
-            android:textColor="@android:color/white" />
-
 
     </LinearLayout>
 </ScrollView>
