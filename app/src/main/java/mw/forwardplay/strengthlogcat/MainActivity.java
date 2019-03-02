@@ -2,6 +2,7 @@ package mw.forwardplay.strengthlogcat;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                         setLog.addSet();
                     }
                     setLog.addRep();
+                    exerciseEditText.setEnabled(false);
                     break;
                 case R.id.add_set:
                     if (repNumber <= 0){
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     setLog.addSet();
+                    exerciseEditText.setEnabled(false);
                     break;
                 case R.id.remove_rep:
                     setLog.removeRep();
