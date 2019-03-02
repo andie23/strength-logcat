@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:text="Exercise Name"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/exercise_name"
+            android:layout_marginTop="30dp"
+            android:hint="Enter exercise name"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_red_light"
+                android:text="Subtract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/set_count"
+                android:text="0 Set(s)"
+                android:textStyle="bold"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/add_set"
+                android:background="@android:color/holo_green_light"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="30dp"
+                android:onClick="onClickAdd"
+                android:text="ADD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_red_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subtract" />
+
+            <TextView
+                android:id="@+id/rep_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="0 Rep(s)"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/add_rep"
+                android:onClick="onClickAdd"
+                android:background="@android:color/holo_green_light"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="ADD" />
+        </LinearLayout>
+
+        <Button
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:text="Next exercise"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/exercise_log"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="Nothing to Log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>
