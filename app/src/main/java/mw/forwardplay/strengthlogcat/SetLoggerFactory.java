@@ -27,13 +27,26 @@ public class SetLoggerFactory {
 
     public static String getStrLog(){
         StringBuilder exerciseLogStr = new StringBuilder();
+        int totalReps = 0;
+        int totalSets = 0;
 
         for(Map.Entry log: exercises.entrySet()){
+            LogSets set = (LogSets) log.getValue();
+            totalSets += set.getSetNumber();
+            totalReps += set.getTotalReps();
             exerciseLogStr.append(log.getKey())
-                        .append(":")
-                        .append(log.getValue().toString())
+                        .append(": ")
+                        .append(set.toString())
                         .append("\n");
         }
+        exerciseLogStr.append("\n")
+                .append("Total Sets: ").append(totalSets)
+                .append("\n")
+                .append("Total Reps: ")
+                .append(totalReps)
+                .append("\n")
+                .append("Total Exercises:")
+                .append(exercises.size());
         return  exerciseLogStr.toString();
     }
 }
@@ -114,6 +127,16 @@ class LogSets{
 
     public int getSetNumber() {
         return setNumber;
+    }
+
+    public int getTotalReps()
+    {
+        int totalReps = 0;
+        for(int counter=0; counter < setList.size(); ++counter)
+        {
+            totalReps += setList.get(counter);
+        }
+        return totalReps;
     }
 
     public String toString()
