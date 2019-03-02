@@ -2,6 +2,7 @@ package mw.forwardplay.strengthlogcat;
 
 import android.content.Intent;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
@@ -105,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setIcon(R.drawable.ic_launcher);
         getMenuInflater().inflate(R.menu.main_toolbar_items, menu);
         MenuItem shareItem = menu.findItem(R.id.share_info);
         shareContent = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
