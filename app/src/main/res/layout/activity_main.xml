@@ -33,6 +33,7 @@
             android:textAppearance="@android:style/TextAppearance.Large"
             android:layout_marginTop="25dp"
             android:text="Set Number:"
+            android:layout_marginBottom="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -74,6 +75,7 @@
         <TextView
             android:textAppearance="@android:style/TextAppearance.Large"
             android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:text="Rep Number:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -115,7 +117,7 @@
 
         <Button
             android:id="@+id/new_exercise"
-            android:layout_width="121dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@color/colorPrimary"
