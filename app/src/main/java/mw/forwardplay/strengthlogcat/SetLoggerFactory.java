@@ -119,16 +119,18 @@ class LogSets{
     public String toString()
     {
         StringBuilder setListStr = new StringBuilder();
+        int totalReps = 0;
         for(int counter=0; counter < setList.size(); ++counter)
         {
+            totalReps += setList.get(counter);
             if (counter >= 1)
             {
-                setListStr.append("+").append(setList.get(counter));
+                setListStr.append(" + ").append(setList.get(counter));
             }else{
                 setListStr.append(setList.get(counter));
             }
         }
-
+        setListStr.append(" = ").append(totalReps);
         return  setListStr.toString();
     }
 }
