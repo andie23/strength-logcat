@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
                     setLog.addRep();
                     break;
                 case R.id.add_set:
+                    if (repNumber <= 0){
+                        Toast.makeText(getApplicationContext(), "Can't create a new set when " +
+                                "the current set's reps are 0", Toast.LENGTH_LONG).show();
+                        break;
+                    }
                     setLog.addSet();
                     break;
                 case R.id.remove_rep:
