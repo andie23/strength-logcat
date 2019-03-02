@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -15,112 +16,119 @@
 
         <TextView
             android:textAppearance="@android:style/TextAppearance.Large"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="Exercise Name"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/exercise_name"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:hint="Enter exercise name"
-            android:layout_width="282dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
+        <TextView
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:layout_marginTop="25dp"
+            android:text="Set Number:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/remove_set"
-                android:textColor="@android:color/white"
-                android:background="@android:color/holo_red_light"
-                android:text="Subtract"
-                android:onClick="onClickSetAdjusters"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:onClick="onClickSetAdjusters"
+                android:text="Subtract"
+                android:textColor="@android:color/white" />
 
             <TextView
-                android:textAppearance="@android:style/TextAppearance.Large"
                 android:id="@+id/set_count"
-                android:text="0"
-                android:textStyle="bold"
-                android:layout_marginLeft="30dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/add_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@android:color/holo_green_light"
-                android:textColor="@android:color/white"
-                android:layout_marginLeft="30dp"
                 android:onClick="onClickSetAdjusters"
                 android:text="ADD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_marginLeft="30dp"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
+
+        <TextView
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:layout_marginTop="25dp"
+            android:text="Rep Number:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/remove_rep"
-                android:textColor="@android:color/white"
-                android:background="@android:color/holo_red_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
                 android:onClick="onClickSetAdjusters"
-                android:text="Subtract" />
+                android:text="Subtract"
+                android:textColor="@android:color/white" />
 
             <TextView
-                android:textAppearance="@android:style/TextAppearance.Large"
                 android:id="@+id/rep_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:text="0"
+                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/add_rep"
-                android:onClick="onClickSetAdjusters"
-                android:background="@android:color/holo_green_light"
-                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_light"
+                android:onClick="onClickSetAdjusters"
+                android:text="ADD"
                 android:layout_marginLeft="30dp"
-                android:text="ADD" />
+                android:textColor="@android:color/white" />
+
         </LinearLayout>
 
         <Button
             android:id="@+id/new_exercise"
-            android:onClick="onClickNewExercise"
-            android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
-            android:text="Next exercise"
-            android:layout_gravity="center"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:background="@color/colorPrimary"
+            android:onClick="onClickNewExercise"
+            android:text="Next exercise"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/exercise_log"
             android:textAppearance="@android:style/TextAppearance.Large"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center"
             android:text="Nothing to Log"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>
