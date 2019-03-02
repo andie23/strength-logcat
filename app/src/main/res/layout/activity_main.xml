@@ -115,16 +115,6 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/new_exercise"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@color/colorPrimary"
-            android:onClick="onClickNewExercise"
-            android:text="Next exercise"
-            android:textColor="@android:color/white" />
-
         <TextView
             android:id="@+id/exercise_log"
             android:textAppearance="@android:style/TextAppearance.Large"
@@ -132,5 +122,17 @@
             android:text="Nothing to Log"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/new_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:onClick="onClickNewExercise"
+            android:text="Next exercise"
+            android:textColor="@android:color/white" />
+
+
     </LinearLayout>
 </ScrollView>

@@ -1,7 +1,5 @@
 package mw.forwardplay.strengthlogcat;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,35 +24,47 @@ public class SetLoggerFactory {
             return exercises.get(exercise);
         }
     }
+
+    public static String getStrLog(){
+        StringBuilder exerciseLogStr = new StringBuilder();
+
+        for(Map.Entry log: exercises.entrySet()){
+            exerciseLogStr.append(log.getKey())
+                        .append(":")
+                        .append(log.getValue().toString())
+                        .append("\n");
+        }
+        return  exerciseLogStr.toString();
+    }
 }
 
 class LogSets{
     private List<Integer> setList = new ArrayList<>();
+    private int setIndex;
     private int setNumber;
     private int repNumber;
 
     public void addRep()
     {
-        repNumber +=1 ;
+        repNumber += 1;
+        updateSetRepInSetList();
     }
 
     public void addSet()
     {
-        addSetToSetList(setNumber, repNumber);
-        setNumber += 1;
         repNumber = 0;
+        addNewSetInSetList();
     }
 
     public void removeSet()
     {
-        int difference = setNumber - 1;
-        if(setNumber > 1)
+        if(setIndex > 0)
         {
-            setNumber = difference;
-            repNumber = setList.get(difference -1);
+            removeSetInSetList();
         }else{
             setNumber = 1;
             repNumber = 0;
+            updateSetRepInSetList();
         }
     }
 
@@ -64,18 +74,38 @@ class LogSets{
         if(repNumber > 0)
         {
             repNumber = difference;
+            updateSetRepInSetList();
         }else{
             repNumber = 0;
         }
     }
 
-    private void addSetToSetList(int setNumber, int repNumber)
+    private void removeSetInSetList()
     {
-        if(setNumber >=1)
-        {
-            setNumber -= 1;
-        }
-        setList.add(setNumber, repNumber);
+        setList.remove(setIndex);
+        setSetNumber();
+        setSetIndex();
+    }
+
+    private void updateSetRepInSetList(){
+        setList.set(setIndex, repNumber);
+    }
+
+    private void setSetNumber()
+    {
+        setNumber = setList.size();
+    }
+
+    private void setSetIndex()
+    {
+        setIndex = setList.size() -1;
+    }
+
+    private void addNewSetInSetList()
+    {
+        setList.add(repNumber);
+        setSetNumber();
+        setSetIndex();
     }
 
     public int getRepNumber() {
@@ -88,20 +118,17 @@ class LogSets{
 
     public String toString()
     {
-        StringBuilder repsStr = new StringBuilder();
-        int counter = 0;
-        int totalReps = 0;
-        for (int reps: setList)
+        StringBuilder setListStr = new StringBuilder();
+        for(int counter=0; counter < setList.size(); ++counter)
         {
-            totalReps += reps;
-            if(counter < setList.size())
+            if (counter >= 1)
             {
-                repsStr.append(reps).append(" + ");
+                setListStr.append("+").append(setList.get(counter));
             }else{
-                repsStr.append("=").append(totalReps);
+                setListStr.append(setList.get(counter));
             }
-            ++counter;
         }
-        return repsStr.toString();
+
+        return  setListStr.toString();
     }
 }

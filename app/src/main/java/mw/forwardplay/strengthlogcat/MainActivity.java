@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText exerciseEditText;
     private TextView repCountTextView;
     private TextView setCountTextView;
+    private TextView exerciseLogTextView;
     private LogSets setLog;
+    private String exerciseLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         repCountTextView = (TextView) findViewById(R.id.rep_count);
         setCountTextView = (TextView) findViewById(R.id.set_count);
         newExerciseButton = (Button) findViewById(R.id.new_exercise);
+        exerciseLogTextView = (TextView) findViewById(R.id.exercise_log);
 
         newExerciseButton.setEnabled(false);
     }
@@ -84,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
             SetLoggerFactory.updateSetLog(exerciseName, setLog);
             repCountTextView.setText(String.valueOf(repNumber));
             setCountTextView.setText(String.valueOf(setNumber));
+            exerciseLog = SetLoggerFactory.getStrLog();
+            exerciseLogTextView.setText(exerciseLog);
         }else{
             Toast.makeText(getApplicationContext(), "Exercise name is required!",
                     Toast.LENGTH_LONG).show();
