@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private LogSets setLog;
     private String exerciseLog;
     private ShareActionProvider shareContent;
+    private boolean isExerciseNameEditable = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         exerciseEditText = (EditText) findViewById(R.id.exercise_name);
         repCountTextView = (TextView) findViewById(R.id.rep_count);
         setCountTextView = (TextView) findViewById(R.id.set_count);
         exerciseLogTextView = (TextView) findViewById(R.id.exercise_log);
+
+        if(savedInstanceState != null)
+        {
+            setNumber = (int) savedInstanceState.get("setNumber");
+            repNumber = (int) savedInstanceState.get("repNumber");
+            exerciseName = (String) savedInstanceState.get("exerciseName");
+            exerciseLog = (String) savedInstanceState.get("exerciseLog");
+            isExerciseNameEditable = (Boolean) savedInstanceState.get("isExerciseNameEditable");
+            updateUIText();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState)
+    {
+        savedInstanceState.putInt("setNumber", setNumber);
+        savedInstanceState.putInt("repNumber", repNumber);
+        savedInstanceState.putString("exerciseName", exerciseName);
+        savedInstanceState.putString("exerciseLog", exerciseLog);
+        savedInstanceState.putBoolean("isExerciseNameEditable", isExerciseNameEditable);
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     public void onClickNewExercise()
@@ -48,10 +71,8 @@ public class MainActivity extends AppCompatActivity {
         setNumber = 0;
         repNumber = 0;
         exerciseName = "";
-        exerciseEditText.setText("");
-        repCountTextView.setText(String.valueOf(repNumber));
-        setCountTextView.setText(String.valueOf(setNumber));
-        exerciseEditText.setEnabled(true);
+        isExerciseNameEditable = true;
+        updateUIText();
     }
 
     public void onClickSetAdjusters(View view)
@@ -67,16 +88,16 @@ public class MainActivity extends AppCompatActivity {
                         setLog.addSet();
                     }
                     setLog.addRep();
-                    exerciseEditText.setEnabled(false);
+                    isExerciseNameEditable = false;
                     break;
                 case R.id.add_set:
                     if (repNumber <= 0){
                         Toast.makeText(getApplicationContext(), "Can't create a new set when " +
-                                "the current set's reps are 0", Toast.LENGTH_LONG).show();
+                                "the current set has no reps", Toast.LENGTH_LONG).show();
                         break;
                     }
                     setLog.addSet();
-                    exerciseEditText.setEnabled(false);
+                    isExerciseNameEditable = false;
                     break;
                 case R.id.remove_rep:
                     setLog.removeRep();
@@ -92,15 +113,22 @@ public class MainActivity extends AppCompatActivity {
             setNumber = setLog.getSetNumber();
             repNumber = setLog.getRepNumber();
             SetLoggerFactory.updateSetLog(exerciseName, setLog);
-            repCountTextView.setText(String.valueOf(repNumber));
-            setCountTextView.setText(String.valueOf(setNumber));
             exerciseLog = SetLoggerFactory.getStrLog();
-            exerciseLogTextView.setText(exerciseLog);
             setShareContentActionProvider();
+            updateUIText();
         }else{
             Toast.makeText(getApplicationContext(), "Exercise name is required!",
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    void updateUIText()
+    {
+        exerciseEditText.setText(exerciseName);
+        repCountTextView.setText(String.valueOf(repNumber));
+        setCountTextView.setText(String.valueOf(setNumber));
+        exerciseLogTextView.setText(exerciseLog);
+        exerciseEditText.setEnabled(isExerciseNameEditable);
     }
 
     @Override
