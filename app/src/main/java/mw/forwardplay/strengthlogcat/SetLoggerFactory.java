@@ -1,5 +1,7 @@
 package mw.forwardplay.strengthlogcat;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,14 +16,19 @@ public class SetLoggerFactory {
         exercises.put(exercise, logSets);
     }
 
-    public static LogSets getSetLogInstance(String exercise)
+    public static boolean isset(String instanceName)
     {
-        if(exercises.containsKey(exercise))
+        return  exercises.containsKey(instanceName);
+    }
+
+    public static LogSets getSetLogInstance(String instanceName)
+    {
+        if(isset(instanceName))
         {
-            return exercises.get(exercise);
+            return exercises.get(instanceName);
         }else{
-            exercises.put(exercise, new LogSets());
-            return exercises.get(exercise);
+            exercises.put(instanceName, new LogSets());
+            return exercises.get(instanceName);
         }
     }
 

@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
         if(savedInstanceState != null)
         {
-            setNumber = (int) savedInstanceState.get("setNumber");
-            repNumber = (int) savedInstanceState.get("repNumber");
             exerciseName = (String) savedInstanceState.get("exerciseName");
-            exerciseLog = (String) savedInstanceState.get("exerciseLog");
-            isExerciseNameEditable = (Boolean) savedInstanceState.get("isExerciseNameEditable");
-            updateUIText();
+            if(SetLoggerFactory.isset(exerciseName)){
+                setNumber = (int) savedInstanceState.get("setNumber");
+                repNumber = (int) savedInstanceState.get("repNumber");
+                exerciseLog = (String) savedInstanceState.get("exerciseLog");
+                isExerciseNameEditable = (Boolean) savedInstanceState.get("isExerciseNameEditable");
+                updateUIText();
+            }
         }
     }
 
