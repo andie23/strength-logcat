@@ -11,4 +11,4 @@ To start another exercises, hit the add button on the toolbar and then enter the
 To return to the previous exercise, enter the name of the exercise and start adding reps..
 
 # Support
-Supports api 19 or something to the most recent one
+Supports api level 19 or something above
