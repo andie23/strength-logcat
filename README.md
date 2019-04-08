@@ -10,5 +10,9 @@ Everything is recorded and calculated in realtime in the logsection of the app.
 To start another exercises, hit the add button on the toolbar and then enter the name of the exercise.
 To return to the previous exercise, enter the name of the exercise and start adding reps..
 
+# Sharing logs
+Use the share button on the toolbar to send your logs via sms (to your doctor/coach) or to your evernote account to 
+keep a permanent log.
+
 # Support
 Supports api level 19 or something above
